@@ -1,6 +1,6 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
-    { "source": "/patricia", "destination": "/patricia-arcarde-psiperto.html" }
+    { "source": "/patricia-arcarde", "destination": "/patricia-arcarde.html" }
   ]
 }
