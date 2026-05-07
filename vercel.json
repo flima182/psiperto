@@ -3,14 +3,5 @@
     { "source": "/", "destination": "/index.html" },
     { "source": "/patricia-arcarde", "destination": "/patricia-arcarde.html" }
   ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Robots-Tag", "value": "index, follow" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
-      ]
-    }
-  ],
   "cleanUrls": true
 }
