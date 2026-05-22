@@ -1,816 +1,1127 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta name="google-site-verification" content="Hq7wQUiUdRfwmRZsE2yL8sCeUvob3rVbwNF5D0kIMS8" /> 
-<meta charset="UTF-8">
-<link rel="icon" type="image/png" href="/favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="PsiPerto — Sua agenda cheia começa com aparecer no Google">
-<meta property="og:description" content="Página profissional com SEO local e botão de WhatsApp. Sem contratar agência e sem complicação técnica.">
-<meta property="og:image" content="https://psiperto.com.br/og-image.png">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://psiperto.com.br">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "PsiPerto",
-  "operatingSystem": "Web",
-  "applicationCategory": "BusinessApplication",
-  "offers": {
-    "@type": "Offer",
-    "price": "47.00",
-    "priceCurrency": "BRL",
-    "description": "Preço de lançamento para fundadores"
-  },
-  "description": "Plataforma de visibilidade para psicólogos autônomos aparecerem no Google local."
-}
-</script>
-<title>PsiPerto — Sua agenda cheia começa com aparecer no Google</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PsiPerto — Presença digital para psicólogos</title>
+  <meta name="description" content="Site profissional, Google Meu Negócio e SEO para psicólogos. Seus pacientes te encontram no Google sem você precisar entender de tecnologia.">
+  <meta name="theme-color" content="#0A0A0A">
+  <meta property="og:title" content="PsiPerto — Presença digital para psicólogos">
+  <meta property="og:description" content="Site, Google Meu Negócio e SEO para psicólogos. Seus pacientes te encontram no Google.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --green-dark: #0F4C35;
-    --green-mid: #1A6347;
-    --green-accent: #6DCEA0;
-    --green-light: #A8DCBC;
-    --green-bg: #F0F7F4;
-    --green-border: #C5DDD4;
-    --cream: #FDFAF6;
-    --text: #1C1C1C;
-    --text-muted: #5A6E65;
-    --text-light: #8FA89F;
-    --border: #E4EDE9;
-    --white: #FFFFFF;
-  }
+    :root {
+      --bg:       #0A0A0A;
+      --bg2:      #111111;
+      --border:   rgba(255,255,255,0.08);
+      --accent:   #6DCEA0;
+      --accent-dim: rgba(109,206,160,0.12);
+      --text:     #EEECEA;
+      --muted:    rgba(238,236,234,0.62);
+      --muted2:   rgba(238,236,234,0.32);
 
-  html { scroll-behavior: smooth; }
+      /* grid */
+      --cols: 12;
+      --gap:  24px;
+      --max:  1200px;
+      --pad:  56px;
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    background: var(--cream);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+      /* easing */
+      --spring: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease:   cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(253,250,246,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-  .nav-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.35rem;
-    color: var(--green-dark);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--green-accent); font-style: italic; }
-  nav a.cta-nav {
-    background: var(--green-dark);
-    color: var(--white);
-    font-size: 0.82rem;
-    font-weight: 500;
-    padding: 8px 18px;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  nav a.cta-nav:hover { background: var(--green-mid); }
+    html { scroll-behavior: smooth; }
 
-  /* HERO */
-  .hero {
-    background: var(--green-dark);
-    padding: 5rem 2rem 4rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 320px; height: 320px;
-    background: radial-gradient(circle, rgba(109,206,160,0.15) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; left: -60px;
-    width: 240px; height: 240px;
-    background: radial-gradient(circle, rgba(109,206,160,0.08) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .hero-content { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(109,206,160,0.3);
-    color: var(--green-accent);
-    font-size: 12px;
-    font-weight: 500;
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.03em;
-  }
-  .badge-dot {
-    width: 6px; height: 6px;
-    background: var(--green-accent);
-    border-radius: 50%;
-    animation: blink 1.8s ease-in-out infinite;
-  }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    a { text-decoration: none; color: inherit; }
 
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    color: var(--white);
-    line-height: 1.15;
-    margin-bottom: 1.25rem;
-  }
-  .hero h1 em { color: var(--green-accent); font-style: italic; }
+    /* ─── MOUSE SPHERE ─── */
+    #sphere {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-  .hero-sub {
-    color: var(--green-light);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    max-width: 480px;
-    margin: 0 auto 2rem;
-    font-weight: 300;
-  }
+    /* ─── 12-COL GRID ─── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), 1fr);
+      column-gap: var(--gap);
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
 
-  .btn {
-    display: inline-block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 14px 32px;
-    border-radius: 30px;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    transition: transform 0.15s, opacity 0.15s;
-  }
-  .btn:hover { transform: translateY(-1px); opacity: 0.92; }
-  .btn-primary { background: var(--green-accent); color: var(--green-dark); }
-  .btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
+    /* span helpers */
+    .col-12 { grid-column: span 12; }
+    .col-10 { grid-column: span 10; }
+    .col-8  { grid-column: span 8; }
+    .col-7  { grid-column: span 7; }
+    .col-6  { grid-column: span 6; }
+    .col-5  { grid-column: span 5; }
+    .col-4  { grid-column: span 4; }
+    .col-3  { grid-column: span 3; }
 
-  .hero-note {
-    color: var(--green-light);
-    font-size: 12px;
-    margin-top: 0.75rem;
-    opacity: 0.7;
-  }
+    /* centering helpers */
+    .col-10.center { grid-column: 2 / span 10; }
+    .col-8.center  { grid-column: 3 / span 8; }
+    .col-6.center  { grid-column: 4 / span 6; }
 
-  .spots-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: rgba(109,206,160,0.12);
-    border: 1px solid rgba(109,206,160,0.3);
-    border-radius: 20px;
-    padding: 6px 14px;
-    margin-top: 1.25rem;
-  }
-  .spots-pill span { color: var(--green-light); font-size: 12px; }
-  .spots-pill strong { color: var(--green-accent); font-size: 12px; }
+    /* ─── SECTION WRAPPER ─── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 140px 0;
+      border-top: 1px solid var(--border);
+    }
 
-  /* TICKER */
-  .ticker {
-    background: var(--green-mid);
-    padding: 10px 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  .ticker-inner {
-    display: inline-flex;
-    gap: 48px;
-    animation: ticker 18s linear infinite;
-  }
-  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-  .ticker-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--green-light);
-    font-size: 13px;
-  }
-  .ticker-item svg { opacity: 0.6; flex-shrink: 0; }
+    section:first-of-type { border-top: none; }
 
-  /* SECTIONS */
-  section { padding: 5rem 2rem; }
-  .container { max-width: 760px; margin: 0 auto; }
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
 
-  .section-tag {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--green-dark);
-    margin-bottom: 0.5rem;
-  }
-  h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.6rem, 4vw, 2rem);
-    line-height: 1.25;
-    margin-bottom: 0.75rem;
-  }
-  .section-sub {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.65;
-    max-width: 500px;
-  }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
 
-  /* PAINS */
-  .pains-bg { background: var(--white); }
-  .pain-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-    margin-top: 2.5rem;
-  }
-  .pain-card {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.5rem;
-  }
-  .pain-icon {
-    width: 42px; height: 42px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 20px;
-  }
-  .pain-icon.red { background: #FFF0F0; }
-  .pain-icon.amber { background: #FFF8EC; }
-  .pain-icon.blue { background: #EEF4FF; }
-  .pain-card h3 { font-size: 0.95rem; font-weight: 500; margin-bottom: 6px; }
-  .pain-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; }
+    .nav-logo {
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-  /* HOW */
-  .steps { display: grid; gap: 0; margin-top: 2.5rem; }
-  .step {
-    display: flex;
-    gap: 20px;
-    padding-bottom: 2rem;
-    position: relative;
-  }
-  .step:last-child { padding-bottom: 0; }
-  .step-left { display: flex; flex-direction: column; align-items: center; }
-  .step-num {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    background: var(--green-dark);
-    color: var(--white);
-    font-size: 14px;
-    font-weight: 500;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .step-line {
-    flex: 1;
-    width: 1px;
-    background: var(--border);
-    margin: 6px 0;
-  }
-  .step:last-child .step-line { display: none; }
-  .step-body { padding-top: 6px; }
-  .step-body h3 { font-size: 1rem; font-weight: 500; margin-bottom: 5px; }
-  .step-body p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .logo-accent { color: var(--text); opacity: 0.45; }
 
-  /* MOCKUP */
-  .mockup-section { background: var(--green-bg); }
-  .mockup-wrap {
-    background: var(--white);
-    border: 1px solid var(--green-border);
-    border-radius: 20px;
-    padding: 2rem;
-    margin-top: 2.5rem;
-  }
-  .mockup-label {
-    text-align: center;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--green-dark);
-    margin-bottom: 1.5rem;
-  }
-  .mock-phone {
-    max-width: 320px;
-    margin: 0 auto;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(15,76,53,0.12);
-  }
-  .mock-header {
-    background: var(--green-dark);
-    padding: 1.75rem 1.25rem 1.5rem;
-    text-align: center;
-  }
-  .mock-avatar {
-    width: 60px; height: 60px;
-    border-radius: 50%;
-    background: var(--green-accent);
-    margin: 0 auto 0.75rem;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; font-weight: 500;
-    color: var(--green-dark);
-    border: 2px solid rgba(255,255,255,0.25);
-  }
-  .mock-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
-    color: var(--white);
-  }
-  .mock-crp { color: var(--green-light); font-size: 11px; margin-top: 3px; }
-  .mock-url {
-    display: inline-block;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(109,206,160,0.3);
-    color: var(--green-accent);
-    font-size: 10px;
-    padding: 3px 10px;
-    border-radius: 10px;
-    margin-top: 8px;
-    font-family: monospace;
-  }
-  .mock-body { padding: 1.25rem; background: var(--white); }
-  .mock-city {
-    display: flex; align-items: center; gap: 5px;
-    font-size: 11px; color: var(--text-muted);
-    margin-bottom: 0.75rem;
-  }
-  .mock-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 0.9rem; }
-  .mock-tag {
-    background: #E6F5EE;
-    color: #0F6E56;
-    font-size: 10px;
-    padding: 3px 9px;
-    border-radius: 12px;
-  }
-  .mock-bio {
-    font-size: 11px; color: var(--text-muted);
-    line-height: 1.55; margin-bottom: 1rem;
-  }
-  .mock-wpp {
-    background: #25D366;
-    color: var(--white);
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 12px; font-weight: 500;
-    display: flex; align-items: center; justify-content: center; gap: 7px;
-    text-align: center;
-  }
-  .mock-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 1.5rem;
-  }
-  .mock-stat {
-    background: var(--green-bg);
-    border-radius: 10px;
-    padding: 0.75rem;
-    text-align: center;
-  }
-  .mock-stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.4rem;
-    color: var(--green-dark);
-    display: block;
-  }
-  .mock-stat-label { font-size: 10px; color: var(--text-muted); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
 
-  /* PRICING */
-  .pricing-section { background: var(--white); }
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 2.5rem;
-  }
-  @media(max-width: 560px) { .pricing-grid { grid-template-columns: 1fr; } }
-  .price-card {
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.75rem;
-  }
-  .price-card.featured {
-    background: var(--green-dark);
-    border-color: var(--green-dark);
-  }
-  .price-card-label {
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 0.75rem;
-  }
-  .price-card.featured .price-card-label { color: var(--green-light); }
-  .price-featured-badge {
-    display: inline-block;
-    background: var(--green-accent);
-    color: var(--green-dark);
-    font-size: 10px; font-weight: 500;
-    padding: 3px 10px;
-    border-radius: 10px;
-    margin-bottom: 0.75rem;
-  }
-  .price-amount {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.4rem;
-    color: var(--text);
-    line-height: 1;
-  }
-  .price-card.featured .price-amount { color: var(--white); }
-  .price-amount span { font-size: 1rem; font-family: 'DM Sans', sans-serif; font-weight: 300; }
-  .price-old {
-    font-size: 12px; color: var(--text-muted);
-    text-decoration: line-through;
-    margin: 4px 0 4px;
-  }
-  .price-card.featured .price-old { color: rgba(168,220,188,0.6); }
-  .price-desc {
-    font-size: 12px; color: var(--text-muted);
-    margin-bottom: 1.25rem;
-    line-height: 1.5;
-  }
-  .price-card.featured .price-desc { color: var(--green-light); }
-  .feat-list { list-style: none; display: grid; gap: 8px; margin-bottom: 1.5rem; }
-  .feat-list li {
-    display: flex; align-items: flex-start; gap: 9px;
-    font-size: 13px; color: var(--text-muted);
-  }
-  .price-card.featured .feat-list li { color: var(--green-light); }
-  .feat-check {
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--green-bg);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 1px;
-    font-size: 11px;
-  }
-  .price-card.featured .feat-check {
-    background: rgba(109,206,160,0.2);
-  }
-  .price-card .btn { width: 100%; text-align: center; }
-  .price-note-bottom {
-    font-size: 12px; color: var(--text-muted);
-    text-align: center; margin-top: 1rem;
-  }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
 
-  /* FAQ */
-  .faq-section { background: var(--cream); }
-  .faq-list { display: grid; gap: 10px; margin-top: 2.5rem; }
-  .faq-item {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.25rem;
-  }
-  .faq-item h3 { font-size: 0.9rem; font-weight: 500; margin-bottom: 6px; }
-  .faq-item p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
+    .nav-links a:hover { color: var(--text); }
 
-  /* CTA FINAL */
-  .cta-section {
-    background: var(--green-dark);
-    padding: 5rem 2rem;
-    text-align: center;
-  }
-  .cta-section h2 { color: var(--white); margin-bottom: 0.75rem; }
-  .cta-section p { color: var(--green-light); font-size: 0.95rem; max-width: 440px; margin: 0 auto 2rem; line-height: 1.65; }
+    .btn-pill {
+      background: var(--accent);
+      color: #0A0A0A;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 20px;
+      border-radius: 100px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
 
-  /* FOOTER */
-  footer {
-    background: #0A3325;
-    padding: 1.75rem 2rem;
-    text-align: center;
-  }
-  .footer-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
-    color: var(--green-light);
-    margin-bottom: 0.5rem;
-  }
-  .footer-logo span { color: var(--green-accent); font-style: italic; }
-  footer p { font-size: 12px; color: rgba(168,220,188,0.5); }
+    .btn-pill:hover { opacity: 0.85; transform: translateY(-1px); }
 
-  @media(max-width: 600px) {
-    .pain-grid { grid-template-columns: 1fr; }
-    section { padding: 3.5rem 1.25rem; }
-    .hero { padding: 3.5rem 1.25rem 3rem; }
-    nav { padding: 0 1.25rem; }
-  }
-</style>
+    /* ─── HERO ─── */
+    #hero {
+      display: flex;
+      align-items: center;
+      padding: 140px 0 100px;
+      border-top: none;
+    }
+
+    #hero .grid { row-gap: 0; align-items: center; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(109,206,160,0.28);
+      background: rgba(109,206,160,0.06);
+      border-radius: 100px;
+      padding: 5px 14px 5px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 36px;
+    }
+
+    .badge-dot {
+      width: 18px; height: 18px;
+      background: rgba(109,206,160,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .badge-dot::after {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* Text reveal — line by line */
+    .line-wrap {
+      overflow: hidden;
+      display: block;
+    }
+
+    .line-wrap span {
+      display: block;
+      transform: translateY(110%);
+      transition: transform 0.75s var(--spring);
+    }
+
+    .line-wrap.in span {
+      transform: translateY(0);
+    }
+
+    .hero-h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 900;
+      line-height: 0.97;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    .hero-h1 .serif {
+      font-family: 'Libre Caslon Text', serif;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #0A0A0A;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 28px;
+      border-radius: 100px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-main:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(8px);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 14px 24px;
+      border-radius: 100px;
+      transition: color 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.18); transform: translateY(-2px); }
+
+    .hero-note {
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--muted2);
+      letter-spacing: 0.04em;
+    }
+
+    /* Hero right: floating card */
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .hero-card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 20px;
+    }
+
+    .hero-card-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .hero-card-row:last-child { border-bottom: none; }
+
+    .hero-card-metric { text-align: right; }
+
+    .hero-card-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .hero-card-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(109,206,160,0.1);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    .status-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-card-metric {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted2);
+    }
+
+    /* ─── STRIP DE FERRAMENTAS ─── */
+    #strip {
+      padding: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .strip-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .strip-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .strip-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .strip-pills {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tool-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255,255,255,0.11);
+      background: rgba(255,255,255,0.04);
+      border-radius: 7px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(238,236,234,0.72);
+      white-space: nowrap;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .tool-pill:hover { border-color: rgba(109,206,160,0.3); color: var(--text); }
+
+    /* ─── SECTION LABELS ─── */
+    .s-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .s-label::before {
+      content: '';
+      display: inline-block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* ─── HEADINGS ─── */
+    .h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.035em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .h2 em {
+      font-family: 'Libre Caslon Text', serif;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+
+    .body-text {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.72;
+      color: var(--muted);
+    }
+
+    /* ─── GLASS CARD ─── */
+    .glass {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      transition: border-color 0.35s var(--ease),
+                  transform    0.35s var(--spring),
+                  box-shadow   0.35s var(--ease);
+    }
+
+    .glass:hover {
+      border-color: rgba(109,206,160,0.22);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.45),
+                  0 0 0 1px rgba(109,206,160,0.06);
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s var(--spring),
+                  transform 0.65s var(--spring);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* stagger delays */
+    .d1 { transition-delay: 0.08s; }
+    .d2 { transition-delay: 0.16s; }
+    .d3 { transition-delay: 0.24s; }
+    .d4 { transition-delay: 0.32s; }
+    .d5 { transition-delay: 0.40s; }
+    .d6 { transition-delay: 0.48s; }
+
+    /* ─── SEÇÃO PROBLEMA ─── */
+    .stat-block {
+      padding: 32px 28px;
+      margin-bottom: 16px;
+    }
+
+    .stat-num {
+      font-family: 'Manrope', sans-serif;
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .stat-label strong { color: var(--text); font-weight: 700; }
+
+    /* ─── COMO FUNCIONA ─── */
+    .step-card {
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-accent-line {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent) 0%, transparent 60%);
+      opacity: 0.55;
+    }
+
+    .step-num {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.5;
+      margin-bottom: 20px;
+    }
+
+    .step-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .entrega-card,
+    .step-card,
+    .pq-card {
+      height: 100%;
+    }
+
+    /* ─── ENTREGAS ─── */
+    .entrega-card {
+      padding: 24px 22px;
+    }
+
+    .entrega-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--accent-dim);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .entrega-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 7px;
+      letter-spacing: -0.01em;
+    }
+
+    .entrega-desc {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.62;
+      color: var(--muted);
+    }
+
+    /* ─── PARA QUEM ─── */
+    .pq-card {
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .pq-num {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.45;
+    }
+
+    .pq-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.48;
+      letter-spacing: -0.01em;
+    }
+
+    /* ─── CTA FINAL ─── */
+    .cta-wrap {
+      background: rgba(109,206,160,0.04);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(109,206,160,0.16);
+      border-radius: 20px;
+      padding: 72px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-wrap::before {
+      content: '';
+      position: absolute;
+      top: -160px; left: 50%;
+      transform: translateX(-50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(109,206,160,0.10) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .cta-wrap .h2 { margin-bottom: 16px; }
+
+    .cta-sub {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 400px;
+      margin: 0 auto 40px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--muted2);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      :root { --pad: 24px; }
+      .nav-links { display: none; }
+
+      .col-7, .col-5, .col-6 { grid-column: span 12; }
+      .col-4 { grid-column: span 6; }
+      .col-10.center, .col-8.center { grid-column: span 12; }
+
+      /* Corrige inline grid-column que sobrescreve as regras acima */
+      #hero .col-5,
+      #problema .col-5 { grid-column: span 12 !important; }
+
+      .stat-right { display: flex; flex-direction: row; gap: 14px; }
+      .stat-block { flex: 1; }
+
+      #hero { padding: 100px 0 64px; }
+      section { padding: 80px 0; }
+
+      /* Strip: scroll horizontal em vez de overflow */
+      .strip-inner { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .strip-inner::-webkit-scrollbar { display: none; }
+
+      /* Preços: col-6 empilha */
+      #precos .col-6 { grid-column: span 12 !important; }
+      #precos [style*="justify-content:center"] { justify-content: flex-start !important; }
+
+      .cta-wrap { padding: 48px 28px; }
+      .footer-inner { flex-direction: column; gap: 10px; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .col-4 { grid-column: span 12; }
+      .stat-right { flex-direction: column; }
+      .hero-h1 { font-size: clamp(40px, 11vw, 52px); }
+
+      /* Hero card: fonte menor e rows mais compactas */
+      .hero-card { padding: 20px; }
+      .hero-card-name { font-size: 12px; }
+      .hero-card-row { padding: 10px 0; gap: 8px; }
+
+      /* Problema: stats empilhados em coluna */
+      .stat-right { flex-direction: column !important; gap: 12px; }
+      .stat-num { font-size: 52px; }
+
+      /* Preços: padding menor */
+      #precos .glass { padding: 28px 24px !important; }
+
+      #hero { padding: 88px 0 48px; }
+      section { padding: 64px 0; }
+
+      .cta-wrap { padding: 40px 20px; }
+      .cta-wrap .h2 { font-size: 28px; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- SPHERE -->
+<div id="sphere"></div>
+
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Psi<span>Perto</span></a>
-  <a href="#preco" class="cta-nav">Garantir vaga</a>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Psi<span class="logo-accent">Perto</span></a>
+    <ul class="nav-links">
+      <li><a href="#problema">O problema</a></li>
+      <li><a href="#como">Como funciona</a></li>
+      <li><a href="#entregas">Entregas</a></li>
+      <li><a href="#para-quem">Pra quem é</a></li>
+      <li><a href="#precos">Preços</a></li>
+    </ul>
+    <a href="https://wa.me/5511945959048?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20PsiPerto" class="btn-pill" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="badge">
-      <div class="badge-dot"></div>
-      Para psicólogos autônomos
+<section id="hero">
+  <div class="grid">
+    <!-- left: content -->
+    <div class="col-6">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Presença digital para psicólogos
+      </div>
+
+      <h1 class="hero-h1">
+        <span class="line-wrap d1"><span>Pacientes novos</span></span>
+        <span class="line-wrap d2"><span>todo mês. <span class="serif">Sem</span></span></span>
+        <span class="line-wrap d3"><span><span class="serif">indicação.</span></span></span>
+      </h1>
+
+      <p class="hero-sub reveal d4">Site, Google Meu Negócio e SEO — tudo criado e mantido pra você.<br>Seus pacientes te encontram. Você só atende.</p>
+
+      <div class="hero-actions reveal d5">
+        <a href="https://wa.me/5511945959048?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20PsiPerto" class="btn-main" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero aparecer no Google
+        </a>
+        <a href="#como" class="btn-ghost">
+          Como funciona
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <p class="hero-note reveal d6">Sem compromisso. Só uma conversa.</p>
     </div>
-    <h1>Sua agenda cheia começa com <em>aparecer no Google</em></h1>
-    <p class="hero-sub">O PsiPerto cria sua página profissional, te posiciona nas buscas locais e transforma visitantes em pacientes direto no WhatsApp. Em menos de 10 minutos, sem contratar agência.</p>
-    <a href="#preco" class="btn btn-primary">Quero minha página agora</a>
-    <p class="hero-note">Sem saber de tecnologia. Sem configuração técnica.</p>
-    <div style="display:flex;justify-content:center;margin-top:1rem">
-      <div class="spots-pill">
-        <div class="badge-dot"></div>
-        <strong>7 vagas</strong>
-        <span>restantes no preço de lançamento</span>
+
+    <!-- right: card -->
+    <div class="col-5" style="grid-column: 8 / span 5;">
+      <div class="glass hero-card reveal d3">
+        <div class="hero-card-label">Presença ativa</div>
+        <div class="hero-card-row">
+          <span class="hero-card-name">Site no ar</span>
+          <span class="hero-card-status"><span class="status-dot"></span> Ativo</span>
+          <span class="hero-card-metric">24/7</span>
+        </div>
+        <div class="hero-card-row">
+          <span class="hero-card-name">Google Meu Negócio</span>
+          <span class="hero-card-status"><span class="status-dot"></span> Verificado</span>
+          <span class="hero-card-metric">↑ posição</span>
+        </div>
+        <div class="hero-card-row">
+          <span class="hero-card-name">SEO orgânico</span>
+          <span class="hero-card-status"><span class="status-dot"></span> Monitorado</span>
+          <span class="hero-card-metric">mensal</span>
+        </div>
+        <div class="hero-card-row">
+          <span class="hero-card-name">WhatsApp integrado</span>
+          <span class="hero-card-status"><span class="status-dot"></span> Online</span>
+          <span class="hero-card-metric">direto</span>
+        </div>
+        <div style="margin-top:20px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted2); margin-bottom:8px;">Pacientes esse mês</div>
+          <div style="font-size:36px; font-weight:900; letter-spacing:-0.04em; color:var(--text);">+8 <span style="font-size:14px; font-weight:500; color:var(--accent);">↑ 33%</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      SEO local automático
+<!-- STRIP -->
+<div id="strip">
+  <div class="strip-inner">
+    <span class="strip-label">Ferramentas</span>
+    <span class="strip-divider"></span>
+    <div class="strip-pills">
+    <span class="tool-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      Google Search
     </span>
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      Botão WhatsApp configurado
+    <span class="tool-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
     </span>
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      URL própria do consultório
+    <span class="tool-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      Site próprio
     </span>
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      Link na bio do Instagram
+    <span class="tool-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Google Meu Negócio
     </span>
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      Suporte ao Google Meu Negócio
+    <span class="tool-pill">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      SEO orgânico
     </span>
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      Pronto em 10 minutos
-    </span>
-    <!-- repeat for seamless loop -->
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      SEO local automático
-    </span>
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      Botão WhatsApp configurado
-    </span>
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      URL própria do consultório
-    </span>
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      Link na bio do Instagram
-    </span>
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      Suporte ao Google Meu Negócio
-    </span>
-    <span class="ticker-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-      Pronto em 10 minutos
-    </span>
+    </div><!-- /strip-pills -->
   </div>
 </div>
 
 <!-- PROBLEMA -->
-<section class="pains-bg">
-  <div class="container">
-    <div class="section-tag">O problema</div>
-    <h2>Por que sua agenda ainda não está cheia?</h2>
-    <p class="section-sub">Não é falta de competência. É falta de visibilidade no lugar certo.</p>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-icon red">🔇</div>
-        <h3>Você é invisível no Google</h3>
-        <p>Quem busca "psicólogo em [sua cidade]" não te encontra. Seu concorrente aparece. Você não.</p>
+<section id="problema">
+  <div class="grid" style="row-gap: 0; align-items: start;">
+    <!-- left -->
+    <div class="col-6" style="padding-right: 40px;">
+      <p class="s-label reveal">O problema</p>
+      <h2 class="h2 reveal d1">A maioria dos pacientes<br>começa pelo <em>Google.</em></h2>
+      <p class="body-text reveal d2" style="margin-top:4px;">Quando alguém decide procurar ajuda, o caminho natural é abrir o Google e digitar "psicólogo perto de mim".</p>
+      <p class="body-text reveal d3" style="margin-top:16px;">Se você não aparece, esse paciente vai pra quem aparece — não pra quem atende melhor.</p>
+      <p class="body-text reveal d4" style="margin-top:24px; color:var(--text); font-weight:700;">Não é falta de competência.<br>O Google ainda não te conhece.</p>
+    </div>
+
+    <!-- right: stats -->
+    <div class="col-5 stat-right" style="grid-column: 8 / span 5;">
+      <div class="glass stat-block reveal d2">
+        <div class="stat-num" data-count="77" data-suffix="%">0%</div>
+        <p class="stat-label">dos pacientes <strong>pesquisam online</strong> antes de escolher um psicólogo</p>
       </div>
-      <div class="pain-card">
-        <div class="pain-icon amber">🔄</div>
-        <h3>Depende só de indicação</h3>
-        <p>Indicação é ótima, mas não tem previsibilidade. Você não controla quando o próximo paciente vai aparecer.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-icon blue">💸</div>
-        <h3>Agência cobra caro demais</h3>
-        <p>Profissionais de marketing cobram R$1.500/mês ou mais pelo mesmo resultado que o PsiPerto entrega por R$47.</p>
+      <div class="glass stat-block reveal d3">
+        <div class="stat-num" style="font-size:50px; letter-spacing:-0.04em;">23h</div>
+        <p class="stat-label">Buscas acontecem <strong>fora do horário comercial</strong> — seu site trabalha enquanto você dorme</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- COMO FUNCIONA -->
-<section>
-  <div class="container">
-    <div class="section-tag">Como funciona</div>
-    <h2>Três passos para começar a receber pacientes</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-left">
-          <div class="step-num">1</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-body">
-          <h3>Preenche um formulário simples</h3>
-          <p>Nome, CRP, foto, especialidades, cidade e abordagem terapêutica. Nenhuma configuração técnica necessária.</p>
-        </div>
+<section id="como">
+  <div class="grid" style="row-gap: 56px;">
+    <div class="col-12">
+      <p class="s-label reveal">Como funciona</p>
+      <h2 class="h2 reveal d1">Três entregas.<br>Uma presença <em>completa.</em></h2>
+    </div>
+
+    <div class="col-4 reveal d1">
+      <div class="glass step-card">
+        <div class="step-accent-line"></div>
+        <div class="step-num">Passo 01</div>
+        <div class="step-title">Site profissional</div>
+        <p class="step-desc">Criamos seu site do zero — pensado pra passar credibilidade e converter visita em contato pelo WhatsApp.</p>
       </div>
-      <div class="step">
-        <div class="step-left">
-          <div class="step-num">2</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-body">
-          <h3>Sua página vai ao ar com SEO local</h3>
-          <p>Você ganha uma URL própria otimizada para aparecer quando alguém buscar "psicólogo em [sua cidade]" no Google.</p>
-        </div>
+    </div>
+    <div class="col-4 reveal d2">
+      <div class="glass step-card">
+        <div class="step-accent-line"></div>
+        <div class="step-num">Passo 02</div>
+        <div class="step-title">Google Meu Negócio</div>
+        <p class="step-desc">Configuramos e otimizamos seu perfil. É o que aparece quando alguém busca psicólogo na sua cidade.</p>
       </div>
-      <div class="step">
-        <div class="step-left">
-          <div class="step-num">3</div>
-          <div class="step-line"></div>
-        </div>
-        <div class="step-body">
-          <h3>Paciente encontra e chama no WhatsApp</h3>
-          <p>O botão já tem mensagem pré-escrita. O paciente clica, a conversa começa. Você só responde e agenda.</p>
-        </div>
+    </div>
+    <div class="col-4 reveal d3">
+      <div class="glass step-card">
+        <div class="step-accent-line"></div>
+        <div class="step-num">Passo 03</div>
+        <div class="step-title">SEO ativo</div>
+        <p class="step-desc">Monitoramos e ajustamos todo mês pra você continuar aparecendo sem precisar fazer nada.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MOCKUP -->
-<section class="mockup-section">
-  <div class="container">
-    <div class="section-tag">O produto</div>
-    <h2>Veja como fica o seu perfil</h2>
-    <p class="section-sub">Uma página profissional, rápida e feita para converter visitantes em pacientes.</p>
-    <div class="mockup-wrap">
-      <p class="mockup-label">Prévia do perfil do psicólogo</p>
-      <div class="mock-phone">
-        <div class="mock-header">
-          <div class="mock-avatar">AP</div>
-          <div class="mock-name">Dra. Ana Paula Ferreira</div>
-          <div class="mock-crp">CRP 06/123456 · Psicóloga Clínica</div>
-          <div class="mock-url">anapaulaferreira.psiperto.com.br</div>
-        </div>
-        <div class="mock-body">
-          <div class="mock-city">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            São Paulo, SP · Online e Presencial
-          </div>
-          <div class="mock-tags">
-            <span class="mock-tag">Ansiedade</span>
-            <span class="mock-tag">Relacionamentos</span>
-            <span class="mock-tag">TCC</span>
-            <span class="mock-tag">Adultos</span>
-          </div>
-          <p class="mock-bio">Psicóloga clínica com foco em ansiedade e relacionamentos. Atendo adultos de forma presencial em Pinheiros e online para todo o Brasil.</p>
-          <div class="mock-wpp">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Agendar consulta pelo WhatsApp
-          </div>
-          <div class="mock-stats">
-            <div class="mock-stat">
-              <span class="mock-stat-num">173</span>
-              <span class="mock-stat-label">visitas/mês no Google</span>
-            </div>
-            <div class="mock-stat">
-              <span class="mock-stat-num">22%</span>
-              <span class="mock-stat-label">taxa de conversão</span>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- ENTREGAS -->
+<section id="entregas">
+  <div class="grid" style="row-gap: 56px;">
+    <div class="col-12">
+      <p class="s-label reveal">O que você recebe</p>
+      <h2 class="h2 reveal d1" style="max-width:560px;">Tudo configurado.<br>Tudo <em>mantido.</em></h2>
+      <p class="body-text reveal d2" style="max-width:560px;">Você não precisa entender de tecnologia. A gente cuida de tudo — do início ao acompanhamento contínuo.</p>
     </div>
+
+    <div class="col-4 reveal d1"><div class="glass entrega-card">
+      <div class="entrega-icon">🌐</div>
+      <div class="entrega-title">Site próprio</div>
+      <p class="entrega-desc">Domínio, hospedagem, design e textos. Pronto em até 7 dias.</p>
+    </div></div>
+    <div class="col-4 reveal d2"><div class="glass entrega-card">
+      <div class="entrega-icon">📍</div>
+      <div class="entrega-title">Google Meu Negócio</div>
+      <p class="entrega-desc">Perfil criado, verificado e otimizado com fotos, horários e descrição.</p>
+    </div></div>
+    <div class="col-4 reveal d3"><div class="glass entrega-card">
+      <div class="entrega-icon">📈</div>
+      <div class="entrega-title">SEO mensal</div>
+      <p class="entrega-desc">Ajustes todo mês pra manter seu posicionamento no Google.</p>
+    </div></div>
+    <div class="col-4 reveal d4"><div class="glass entrega-card">
+      <div class="entrega-icon">📲</div>
+      <div class="entrega-title">Botão WhatsApp</div>
+      <p class="entrega-desc">Contato direto chegando no seu celular — pelo site e pelo Google.</p>
+    </div></div>
+    <div class="col-4 reveal d5"><div class="glass entrega-card">
+      <div class="entrega-icon">🔒</div>
+      <div class="entrega-title">Zero esforço técnico</div>
+      <p class="entrega-desc">Você não precisa mexer em nada. A gente faz e mantém tudo.</p>
+    </div></div>
+    <div class="col-4 reveal d6"><div class="glass entrega-card">
+      <div class="entrega-icon">💬</div>
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:8px;">incluso no plano</div>
+      <div class="entrega-title">Suporte contínuo</div>
+      <p class="entrega-desc">Ajustes e dúvidas respondidas. Enquanto você é cliente, a gente está do lado.</p>
+    </div></div>
   </div>
 </section>
 
-<!-- PREÇO -->
-<section class="pricing-section" id="preco">
-  <div class="container">
-    <div class="section-tag">Investimento</div>
-    <h2>Simples. Sem surpresa.</h2>
-    <p class="section-sub">Menos que um almoço por semana para ter pacientes chegando toda semana.</p>
-
-  <!-- GARANTIA -->
-  <div style="background:#F0F7F4;border:1px solid #C5DDD4;border-radius:14px;padding:1.5rem;margin:0 0 1.5rem 0;display:flex;align-items:flex-start;gap:14px">
-    <div style="font-size:28px;flex-shrink:0">🛡️</div>
-    <div>
-      <h3 style="font-size:0.95rem;font-weight:500;color:#0F4C35;margin-bottom:5px">Garantia de 60 dias</h3>
-      <p style="font-size:0.85rem;color:#5A6E65;line-height:1.6">Se em 60 dias sua página não estiver indexada no Google e você não tiver recebido pelo menos 1 contato via WhatsApp, devolvemos 100% do valor pago. Sem perguntas.</p>
+<!-- PARA QUEM -->
+<section id="para-quem">
+  <div class="grid" style="row-gap: 56px;">
+    <div class="col-12">
+      <p class="s-label reveal">Pra quem é</p>
+      <h2 class="h2 reveal d1">É pra você se você<br>se <em>reconhece aqui.</em></h2>
     </div>
+
+    <div class="col-4 reveal d1"><div class="glass pq-card">
+      <div class="pq-num">01</div>
+      <div class="pq-text">Atende em consultório próprio ou online</div>
+    </div></div>
+    <div class="col-4 reveal d2"><div class="glass pq-card">
+      <div class="pq-num">02</div>
+      <div class="pq-text">Não tem site ou ele não aparece no Google</div>
+    </div></div>
+    <div class="col-4 reveal d3"><div class="glass pq-card">
+      <div class="pq-num">03</div>
+      <div class="pq-text">Depende de indicação pra conseguir pacientes novos</div>
+    </div></div>
+    <div class="col-4 reveal d4"><div class="glass pq-card">
+      <div class="pq-num">04</div>
+      <div class="pq-text">Não tem tempo pra aprender sobre tecnologia ou marketing</div>
+    </div></div>
+    <div class="col-4 reveal d5"><div class="glass pq-card">
+      <div class="pq-num">05</div>
+      <div class="pq-text">Quer crescer sem depender só de quem te conhece</div>
+    </div></div>
+    <div class="col-4 reveal d6"><div class="glass pq-card">
+      <div class="pq-num">06</div>
+      <div class="pq-text">Quer uma solução completa, mantida, sem dor de cabeça</div>
+    </div></div>
   </div>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <p class="price-card-label">Plano padrão</p>
-        <div class="price-amount"><span>R$</span>97<span>/mês</span></div>
-        <p class="price-old">&nbsp;</p>
-        <p class="price-desc">Para quem quer entrar depois do lançamento.</p>
-        <ul class="feat-list">
-          <li><span class="feat-check">✓</span> Página profissional com URL própria</li>
-          <li><span class="feat-check">✓</span> SEO local configurado</li>
-          <li><span class="feat-check">✓</span> Botão WhatsApp com mensagem pronta</li>
-          <li><span class="feat-check">✓</span> Link na bio do Instagram</li>
+</section>
+
+<!-- PREÇOS -->
+<section id="precos">
+  <div class="grid" style="row-gap: 56px;">
+    <div class="col-12">
+      <p class="s-label reveal">Investimento</p>
+      <h2 class="h2 reveal d1" style="max-width:520px;">Um plano só.<br>Tudo <em>incluso.</em></h2>
+      <p class="body-text reveal d2" style="max-width:480px;">Sem surpresas. Sem cobranças extras. Um valor fixo que cobre tudo — do site ao SEO mensal.</p>
+    </div>
+
+    <div class="col-6 reveal d1">
+      <div class="glass" style="padding: 40px 36px;">
+        <div class="s-label" style="margin-bottom:12px;">Plano completo</div>
+        <div style="font-size:56px; font-weight:900; letter-spacing:-0.05em; line-height:1; color:var(--text); margin-bottom:8px;">
+          R$297<span style="font-size:18px; font-weight:500; color:var(--muted);">/mês</span>
+        </div>
+        <p style="font-size:13px; color:var(--muted2); margin-bottom:32px;">Sem fidelidade. Cancela quando quiser.</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:36px;">
+          <li style="display:flex; align-items:center; gap:12px; font-size:14px; font-weight:500; color:var(--muted);"><span style="color:var(--accent);">✓</span> Site profissional criado do zero</li>
+          <li style="display:flex; align-items:center; gap:12px; font-size:14px; font-weight:500; color:var(--muted);"><span style="color:var(--accent);">✓</span> Google Meu Negócio configurado e verificado</li>
+          <li style="display:flex; align-items:center; gap:12px; font-size:14px; font-weight:500; color:var(--muted);"><span style="color:var(--accent);">✓</span> SEO monitorado todo mês</li>
+          <li style="display:flex; align-items:center; gap:12px; font-size:14px; font-weight:500; color:var(--muted);"><span style="color:var(--accent);">✓</span> Botão WhatsApp integrado</li>
+          <li style="display:flex; align-items:center; gap:12px; font-size:14px; font-weight:500; color:var(--muted);"><span style="color:var(--accent);">✓</span> Suporte contínuo incluso</li>
         </ul>
-        <a href="#" class="btn" style="background:#F5F5F0;color:#444;border:1px solid #E4EDE9">Entrar depois</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-featured-badge">Lançamento · Apenas 20 vagas</div>
-        <p class="price-card-label">Fundador</p>
-        <div class="price-amount"><span>R$</span>47<span>/mês</span></div>
-        <p class="price-old">R$97/mês</p>
-        <p class="price-desc">Preço travado para sempre enquanto a assinatura estiver ativa.</p>
-        <ul class="feat-list">
-          <li><span class="feat-check">✓</span> Tudo do plano padrão</li>
-          <li><span class="feat-check">✓</span> Guia de configuração Google Meu Negócio</li>
-          <li><span class="feat-check">✓</span> Templates de mensagem para WhatsApp</li>
-          <li><span class="feat-check">✓</span> Acesso antecipado a novidades</li>
-          <li><span class="feat-check">✓</span> Preço travado para sempre</li>
-        </ul>
-        <a href="https://forms.gle/kmkVVpCYW5wK4D3B6" target="_blank" rel="noopener" target="_blank" rel="noopener" class="btn btn-primary">Preencher formulário agora</a>
+        <a href="https://wa.me/5511945959048?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20PsiPerto" class="btn-main" target="_blank" rel="noopener" style="display:flex; width:100%; justify-content:center;">
+          Começar agora
+        </a>
       </div>
     </div>
-    <p class="price-note-bottom">Cancele quando quiser. Sem fidelidade, sem multa.</p>
-  </div>
-</section>
 
-<!-- FAQ -->
-<section class="faq-section">
-  <div class="container">
-    <div class="section-tag">Dúvidas frequentes</div>
-    <h2>Tudo que você quer saber</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <h3>Preciso saber de tecnologia para usar?</h3>
-        <p>Não. Você preenche um formulário simples com suas informações e a página é criada automaticamente. Nenhuma linha de código, nenhuma configuração técnica.</p>
+    <div class="col-6 reveal d2" style="display:flex; flex-direction:column; gap:16px; justify-content:center;">
+      <div class="glass" style="padding:24px 28px;">
+        <div style="font-size:13px; font-weight:700; color:var(--text); margin-bottom:8px;">E se eu quiser cancelar?</div>
+        <p style="font-size:13px; color:var(--muted); line-height:1.65;">Sem fidelidade. Avisa com 30 dias de antecedência e pronto — sem burocracia.</p>
       </div>
-      <div class="faq-item">
-        <h3>Quanto tempo leva para minha página aparecer no Google?</h3>
-        <p>Em média de 24 a 72 horas para indexação inicial. SEO local bem feito começa a gerar resultados consistentes em 30 a 60 dias.</p>
+      <div class="glass" style="padding:24px 28px;">
+        <div style="font-size:13px; font-weight:700; color:var(--text); margin-bottom:8px;">Tem taxa de setup?</div>
+        <p style="font-size:13px; color:var(--muted); line-height:1.65;">Não. A mensalidade já inclui toda a criação inicial — site, GMB e configuração de SEO.</p>
       </div>
-      <div class="faq-item">
-        <h3>Isso vai contra as normas do CFP?</h3>
-        <p>Não. O PsiPerto é uma página de apresentação profissional, não de publicidade de resultados. Está dentro das diretrizes do Código de Ética do CFP para divulgação de serviços.</p>
-      </div>
-      <div class="faq-item">
-        <h3>E se eu já tiver um site?</h3>
-        <p>O PsiPerto complementa qualquer site existente. Você pode usar como link na bio, página de agendamento ou página específica para buscas locais no Google.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Posso cancelar quando quiser?</h3>
-        <p>Sim. Sem contrato, sem multa, sem fidelidade. Se em algum momento o produto não fizer mais sentido para você, cancela com um clique.</p>
+      <div class="glass" style="padding:24px 28px;">
+        <div style="font-size:13px; font-weight:700; color:var(--text); margin-bottom:8px;">Em quanto tempo apareço no Google?</div>
+        <p style="font-size:13px; color:var(--muted); line-height:1.65;">O site fica no ar em até 7 dias. O Google leva de 30 a 90 dias pra indexar — é o tempo padrão pra qualquer site novo.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA FINAL -->
-<section class="cta-section">
-  <h2>Pronto para parar de depender só de indicação?</h2>
-  <p>Junte-se aos primeiros psicólogos que vão aparecer no Google antes dos concorrentes. Vagas limitadas para o preço de lançamento.</p>
-  <a href="https://forms.gle/kmkVVpCYW5wK4D3B6" target="_blank" rel="noopener" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:1rem;padding:15px 36px">Garantir minha vaga por R$47/mês</a>
-  <p style="color:rgba(168,220,188,0.6);font-size:12px;margin-top:1rem">7 vagas restantes · Preço travado para sempre</p>
+<section id="cta-final">
+  <div class="grid">
+    <div class="col-8 center reveal">
+      <div class="cta-wrap">
+        <p class="s-label" style="justify-content:center;">Próximo passo</p>
+        <h2 class="h2">Pronto pra aparecer<br>quando <em>importa?</em></h2>
+        <p class="cta-sub">Conta pra gente sobre seu consultório. Sem compromisso — a gente entende seu caso e explica como funciona.</p>
+        <a href="https://wa.me/5511945959048?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20PsiPerto" class="btn-main" target="_blank" rel="noopener" style="display:inline-flex;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p class="footer-logo">Psi<span>Perto</span></p>
-  <p>Feito para psicólogos autônomos que querem crescer no digital.</p>
+  <div class="footer-inner">
+    <span class="footer-logo">Psi<span class="logo-accent">Perto</span></span>
+    <span class="footer-copy">© 2026 PsiPerto. Todos os direitos reservados.</span>
+  </div>
 </footer>
 
+<script>
+  // ── Mouse sphere ──
+  const sphere = document.getElementById('sphere');
+  let mx = 50, my = 50, cx = 50, cy = 50;
+
+  document.addEventListener('mousemove', e => {
+    mx = (e.clientX / window.innerWidth)  * 100;
+    my = (e.clientY / window.innerHeight) * 100;
+  });
+
+  (function tick() {
+    cx += (mx - cx) * 0.055;
+    cy += (my - cy) * 0.055;
+    sphere.style.background =
+      `radial-gradient(700px circle at ${cx}% ${cy}%, rgba(109,206,160,0.065) 0%, transparent 62%)`;
+    requestAnimationFrame(tick);
+  })();
+
+  // ── Scroll reveal ──
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.10 });
+
+  reveals.forEach(el => io.observe(el));
+
+  // Trigger hero immediately
+  document.querySelectorAll('#hero .reveal, #hero .line-wrap').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), 80 + i * 80);
+  });
+
+  // ── Counter animation ──
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    let started = false;
+
+    const countIO = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        let current = 0;
+        const step = target / 40;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.round(current) + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 30);
+      }
+    }, { threshold: 0.5 });
+
+    countIO.observe(el);
+  });
+</script>
 </body>
 </html>
